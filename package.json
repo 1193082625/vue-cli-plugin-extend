@@ -1,0 +1,17 @@
+{
+  "name": "vue-cli-plugin-extend",
+  "version": "1.0.0",
+  "description": "基于vue-cli扩展，生成包含UI框架，本地缓存等的基础项目代码",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1193082625/vie-cli-extend.git"
+  },
+  "homepage": "https://github.com/1193082625/vie-cli-extend#readme"
+}
