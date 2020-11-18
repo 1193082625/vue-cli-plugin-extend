@@ -11,7 +11,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1193082625/vie-cli-extend.git"
+    "url": "git+https://github.com/1193082625/vue-cli-plugin-extend.git"
   },
-  "homepage": "https://github.com/1193082625/vie-cli-extend#readme"
+  "homepage": "https://github.com/1193082625/vue-cli-plugin-extend#readme"
 }
