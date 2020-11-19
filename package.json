@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "基于vue-cli扩展，生成包含UI框架，本地缓存等的基础项目代码",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": ["vue", "vue-cli" , "vue-cli-plugin"],
+  "author": "Echo",
   "license": "ISC",
   "repository": {
     "type": "git",
