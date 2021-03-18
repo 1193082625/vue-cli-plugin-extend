@@ -1,7 +1,7 @@
 /*
  * @Author: echo
  * @Date: 2021-02-20 15:22:43
- * @LastEditTime: 2021-03-18 15:10:36
+ * @LastEditTime: 2021-03-18 17:26:43
  * @LastEditors: Please set LastEditors
  * @Description: axios的请求封装
  * @FilePath: \jiake-share-h5\src\api\api.ts
@@ -21,12 +21,12 @@ class JKRequest {
     request(options) {
         // 针对每次请求创建新的实例，每个实例的拦截器和其他请求无关，这样方便给每次请求单独配置拦截器
         const instance = axios.create();
-        this.#setInterceptors(instance);
+        this.setInterceptors(instance);
         const opts = this.#mergeOptions(options);
         return instance(opts);
     }
     // 添加拦截
-    #setInterceptors(instance) {
+    setInterceptors(instance) {
         instance.interceptors.request.use((config) => {
             // 显示加载状态
             store.commit(Types.SET_LOADING, true);

@@ -63,7 +63,7 @@ service.interceptors.request.use(
             config.headers['Authorization'] = 'Bearer ' + token; // 后台接口定义传入的token前加Beare加空格
         }
         // 如果正在调用刷新token接口，则后续接口请求
-        let p = new Promise((resolve, reject) => {
+        let p = new Promise((resolve) => {
             // 判断token是否即将过期，排除登录接口
             if (token && tokenExpire() && !isLogin) {
                 console.log('token即将过期');
@@ -76,7 +76,7 @@ service.interceptors.request.use(
                     return;
                 }
                 isRefresh = true;
-                prom = new Promise((resolve, reject) => {
+                prom = new Promise((resolve) => {
                     getReToken().then(res => {
                         isRefresh = false;
                         let data = res.data;
@@ -107,7 +107,7 @@ service.interceptors.request.use(
                         loading && loading.close();
                         window.location.href = 'http://' + hostName + '/#/login';
                     });
-                }).then(res => {
+                }).then(() => {
                     console.log('重新请求失败的接口', config);
                     removePending(config);
                     return service(config);
@@ -115,7 +115,7 @@ service.interceptors.request.use(
                 return prom;
             }
             resolve('success');
-        }).then(res => {
+        }).then(() => {
             return config;
         });
         return p;
