@@ -1,36 +1,21 @@
 /*
  * @Author: your name
  * @Date: 2020-11-20 13:16:25
- * @LastEditTime: 2020-11-20 14:49:45
+ * @LastEditTime: 2021-03-18 14:58:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \gather-tools-front\src\router\index.js
  */
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import { getToken } from '@/cache';
+import { createRouter, createWebHashHistory } from "vue-router";
 
-Vue.use(VueRouter);
+const routeFiles = require.context("./", false, /\.router.js$/);
+const routes = [];
+routeFiles.keys().forEach(key => {
+  routes.push(...routeFiles(key).default);
+});
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/login",
-    name: "login",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Login.vue")
-  }
-];
-
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes
 });
 

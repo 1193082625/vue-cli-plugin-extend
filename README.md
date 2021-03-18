@@ -1,3 +1,10 @@
+<!--
+ * @Author: ECHO
+ * @Date: 2021-02-05 17:54:46
+ * @LastEditTime: 2021-03-18 15:12:31
+ * @LastEditors: 
+ * @Description: 
+-->
 ## vue cli 插件
 
 该插件用于基于vue cli使用--preset快速生成带相关插件的基础项目代码
@@ -12,11 +19,12 @@
 
 #### 默认安装插件
 
-* good-storage
+  * good-storage
   * axios
   * jquery
   * vue-router
   * vuex
+  * mock
   * eslint（git提交前会先检查代码）
   * less
 

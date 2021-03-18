@@ -1,7 +1,7 @@
 /*
  * @Author: Echo
  * @Date: 2020-11-17 13:31:56
- * @LastEditTime: 2020-11-18 17:17:48
+ * @LastEditTime: 2021-03-18 15:00:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \base-jk-cli\vue-cli-plugin-extend\generator.js
@@ -29,6 +29,7 @@ module.exports = (api, options, rootOptions) => {
                 "element-ui": "^2.7.2",
                 "good-storage": "^1.1.0",
                 "jquery": "^3.4.1",
+                "mockjs": "^1.1.0",
                 "vue-class-component": "^7.2.2",
                 "vue-property-decorator": "^8.3.0",
                 "vue-router": "^3.1.5"
@@ -62,6 +63,7 @@ module.exports = (api, options, rootOptions) => {
                 "axios": "^0.21.0",
                 "good-storage": "^1.1.1",
                 "vant": "^2.10.11",
+                "mockjs": "^1.1.0",
                 "vue-router": "^3.2.0"
             },
             devDependencies: {
@@ -142,6 +144,7 @@ module.exports = (api, options, rootOptions) => {
     api.injectImports(api.entryFile, `import './assets/styles/normalize.css'`);
     // main.js 引入公共样式表
     api.injectImports(api.entryFile, `import './assets/styles/common.less'`);
+    api.injectImports(api.entryFile, `import config from './config'`);
 }
 
 module.exports.hooks = (api, options) => {
@@ -164,6 +167,9 @@ module.exports.hooks = (api, options) => {
             lines[renderIndex] += `${EOL} Vue.use(Vant);`
         }
         lines[renderIndex] += `${EOL} Vue.prototype.$storage = storage;`
+
+        // 生产环境使用mock
+        lines[renderIndex] += `${EOL} config.needMock && require('@/mock/')`;
 
         fs.writeFileSync(mainPath, lines.join(EOL), { encoding: 'utf-8' })
     })
